@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orman Bilim Oyunu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f7f9fc;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    .task {
+      display: none;
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .task.active {
+      display: block;
+    }
+    fieldset {
+      margin-bottom: 15px;
+      border: 1px solid #90caf9;
+      padding: 10px;
+      border-radius: 6px;
+      background: white;
+    }
+    legend {
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #1976d2;
+      color: white;
+      padding: 10px 18px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }
+    #feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Orman Bilim Oyunu</h1>
+  <p id="intro">URL’deki <code>?gorev=1</code> gibi parametre ile görevi seçebilirsiniz.</p>
+
+  <!-- Görev 1 -->
+  <div class="task" id="task1">
+    <h2>Görev 1: Fotosentez</h2>
+    <p>İlk Göreve Hoşgeldin! Aşağıdaki soruları doğru cevaplayıp diğer göreve geçebilirsin.</p>
+    <form id="form1">
+      <fieldset>
+        <legend>1. Fotosentez için gerekli temel maddeler hangileridir? (Birden fazla seçebilirsiniz)</legend>
+        <label><input type="checkbox" name="q1" value="a" /> Karbondioksit</label>
+        <label><input type="checkbox" name="q1" value="b" /> Su</label>
+        <label><input type="checkbox" name="q1" value="c" /> Oksijen</label>
+        <label><input type="checkbox" name="q1" value="d" /> Güneş ışığı</label>
+        <label><input type="checkbox" name="q1" value="e" /> Azot</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Fotosentez sonucu bitkeler hangi maddeyi açığa çıkarır?</legend>
+        <label><input type="radio" name="q2" value="a" /> Oksijen</label>
+        <label><input type="radio" name="q2" value="b" /> Karbondioksit</label>
+        <label><input type="radio" name="q2" value="c" /> Su</label>
+        <label><input type="radio" name="q2" value="d" /> Metan</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Fotosentez hangi organelde gerçekleşir?</legend>
+        <label><input type="radio" name="q3" value="a" /> Mitokondri</label>
+        <label><input type="radio" name="q3" value="b" /> Kloroplast</label>
+        <label><input type="radio" name="q3" value="c" /> Çekirdek</label>
+        <label><input type="radio" name="q3" value="d" /> Ribozom</label>
+      </fieldset>
+
+      <button type="submit">Cevapları Kontrol Et</button>
+      <div id="feedback1" class="feedback"></div>
+    </form>
+  </div>
+
+  <!-- Görev 2 -->
+  <div class="task" id="task2">
+    <h2>Görev 2: Çift Yarık Deneyi</h2>
+    <p>2. Göreve Hoşgeldiniz! Işığın girişim desenlerini keşfettiniz. Soruları cevaplayın ve ilerleyin!</p>
+    <form id="form2">
+      <fieldset>
+        <legend>1. Çift yarıkta girişim deneyinde perde üzerinde ne tür bir desen oluşur?</legend>
+        <label><input type="radio" name="q1" value="a" /> Sadece tek parlak çizgi</label>
+        <label><input type="radio" name="q1" value="b" /> Parlak ve karanlık çizgilerden oluşan bir desen</label>
+        <label><input type="radio" name="q1" value="c" /> Dairesel halkalar</label>
+        <label><input type="radio" name="q1" value="d" /> Renkli gökkuşağı halkaları</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Işık dalgaları birbirine karıştığında bazen birbirini güçlendirir, bazen de söndürür.</legend>
+        <label><input type="radio" name="q2" value="dogru" /> Doğru</label>
+        <label><input type="radio" name="q2" value="yanlis" /> Yanlış</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Bu deneyde ışığın doğasına dair öğrendiğiniz en önemli bilgi neydi?</legend>
+        <input type="text" id="q3" placeholder="Kendi cümlenizi yazın" />
+      </fieldset>
+
+      <button type="submit">Cevapları Kontrol Et</button>
+      <div id="feedback2" class="feedback"></div>
+    </form>
+  </div>
+
+  <!-- Görev 3 -->
+  <div class="task" id="task3">
+    <h2>Görev 3: Elektronlarla Kırınım</h2>
+    <p>Elektronların dalga gibi davranabildiğini keşfettiniz. Soruları cevaplayın!</p>
+    <form id="form3">
+      <fieldset>
+        <legend>1. Elektronlarla yapılan kırınım deneyinde gözlemlenen desen, hangi dalga özelliğinin kanıtıdır?</legend>
+        <label><input type="radio" name="q1" value="a" /> Elektronların sadece parçacık olduğunu</label>
+        <label><input type="radio" name="q1" value="b" /> Elektronların da dalga gibi davranabildiğini</label>
+        <label><input type="radio" name="q1" value="c" /> Elektronların renk değiştirdiğini</label>
+        <label><input type="radio" name="q1" value="d" /> Elektronların ışık yaydığını</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Elektronlar sadece atom çekirdeği etrafında dönen küçük toplar gibi davranır.</legend>
+        <label><input type="radio" name="q2" value="dogru" /> Doğru</label>
+        <label><input type="radio" name="q2" value="yanlis" /> Yanlış</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Elektronların dalga-parçacık dualitesi ne demektir? Basitçe açıkla.</legend>
+        <input type="text" id="q3" placeholder="Kendi cümlenizi yazın" />
+      </fieldset>
+
+      <button type="submit">Cevapları Kontrol Et</button>
+      <div id="feedback3" class="feedback"></div>
+    </form>
+  </div>
+
+  <!-- Görev 4 -->
+  <div class="task" id="task4">
+    <h2>Görev 4: Gezegenler</h2>
+    <p>Güneş Sistemi hakkında öğrendiklerinizi test edin!</p>
+    <form id="form4">
+      <fieldset>
+        <legend>1. Güneş Sistemi'nde kaç tane gezegen vardır?</legend>
+        <label><input type="radio" name="q1" value="a" /> 7</label>
+        <label><input type="radio" name="q1" value="b" /> 8</label>
+        <label><input type="radio" name="q1" value="c" /> 9</label>
+        <label><input type="radio" name="q1" value="d" /> 10</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Venüs, Dünya’dan daha sıcak bir gezegendir.</legend>
+        <label><input type="radio" name="q2" value="dogru" /> Doğru</label>
+        <label><input type="radio" name="q2" value="yanlis" /> Yanlış</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Dünyanın neden gece ve gündüz yaşadığını basitçe açıkla.</legend>
+        <input type="text" id="q3" placeholder="Kendi cümlenizi yazın" />
+      </fieldset>
+
+      <button type="submit">Cevapları Kontrol Et</button>
+      <div id="feedback4" class="feedback"></div>
+    </form>
+  </div>
+
+  <!-- Görev 5 -->
+  <div class="task" id="task5">
+    <h2>Görev 5: Bitki Dikme ve Doğa Bilimi</h2>
+    <p>Bitkiler ve doğa hakkında öğrendiklerini göster!</p>
+    <form id="form5">
+      <fieldset>
+        <legend>1. Bitkiler büyümek için hangi üç temel şeye ihtiyaç duyar?</legend>
+        <label><input type="radio" name="q1" value="a" /> Su, toprak, güneş ışığı</label>
+        <label><input type="radio" name="q1" value="b" /> Su, ışık, köpek</label>
+        <label><input type="radio" name="q1" value="c" /> Toprak, hava, televizyon</label>
+        <label><input type="radio" name="q1" value="d" /> Su, taş, toprak</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Bitkiler kökleri sayesinde suyu ve mineralleri topraktan alır.</legend>
+        <label><input type="radio" name="q2" value="dogru" /> Doğru</label>
+        <label><input type="radio" name="q2" value="yanlis" /> Yanlış</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Bir bitkinin sağlıklı büyümesi için nelere dikkat etmek gerekir? Kendi cümlenle açıkla.</legend>
+        <input type="text" id="q3" placeholder="Kendi cümlenizi yazın" />
+      </fieldset>
+
+      <button type="submit">Cevapları Kontrol Et</button>
+      <div id="feedback5" class="feedback"></div>
+    </form>
+  </div>
+
+  <script>
+    // Görevin ID'sini URL parametresinden oku, default 1
+    function getGorevFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const gorev = params.get('gorev');
+      if (gorev && ['1','2','3','4','5'].includes(gorev)) return gorev;
+      return '1';
+    }
+
+    function showGorev(gorev) {
+      document.querySelectorAll('.task').forEach(task => task.classList.remove('active'));
+      const activeTask = document.getElementById('task' + gorev);
+      if (activeTask) activeTask.classList.add('active');
+    }
+
+    // Doğru cevap kontrol fonksiyonları
+    function checkForm1() {
+      const form = document.getElementById('form1');
+      const q1Selected = Array.from(form.elements['q1'])
+        .filter(chk => chk.checked)
+        .map(chk => chk.value)
+        .sort()
+        .join(',');
+      const q1Correct = ['a','b','d'].sort().join(',');
+      const q2Selected = form.elements['q2'].value;
+      const q2Correct = 'a';
+      const q3Selected = form.elements['q3'].value;
+      const q3Correct = 'b';
+
+      if (q1Selected === q1Correct && q2Selected === q2Correct && q3Selected === q3Correct) {
+        return true;
+      }
+      return false;
+    }
+
+    function checkForm2() {
+      const form = document.getElementById('form2');
+      const q1 = form.elements['q1'].value;
+      const q2 = form.elements['q2'].value;
+      const q3 = document.getElementById('task2').querySelector('input#q3').value.trim();
+      if (!q3) return false;
+      if (q1 === 'b' && q2 === 'dogru') return true;
+      return false;
+    }
+
+    function checkForm3() {
+      const form = document.getElementById('form3');
+      const q1 = form.elements['q1'].value;
+      const q2 = form.elements['q2'].value;
+      const q3 = document.getElementById('task3').querySelector('input#q3').value.trim();
+      if (!q3) return false;
+      if (q1 === 'b' && q2 === 'yanlis') return true;
+      return false;
+    }
+
+    function checkForm4() {
+      const form = document.getElementById('form4');
+      const q1 = form.elements['q1'].value;
+      const q2 = form.elements['q2'].value;
+      const q3 = document.getElementById('task4').querySelector('input#q3').value.trim();
+      if (!q3) return false;
+      if (q1 === 'b' && q2 === 'dogru') return true;
+      return false;
+    }
+
+    function checkForm5() {
+      const form = document.getElementById('form5');
+      const q1 = form.elements['q1'].value;
+      const q2 = form.elements['q2'].value;
+      const q3 = document.getElementById('task5').querySelector('input#q3').value.trim();
+      if (!q3) return false;
+      if (q1 === 'a' && q2 === 'dogru') return true;
+      return false;
+    }
+
+    function setupForm(formId, checkFunction, feedbackId, successMsg, failMsg) {
+      const form = document.getElementById(formId);
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const feedback = document.getElementById(feedbackId);
+        if (checkFunction()) {
+          feedback.style.color = 'green';
+          feedback.textContent = successMsg;
+        } else {
+          feedback.style.color = 'red';
+          feedback.textContent = failMsg;
+        }
+      });
+    }
+
+    // Sayfa açıldığında
+    const gorev = getGorevFromURL();
+    showGorev(gorev);
+
+    setupForm('form1', checkForm1, 'feedback1',
+      "Tebrikler! Doğru cevapladın. Sırtını bu QR koda dayayıp 3 ağaç ilerle, ikinci görev seni bekliyor.",
+      "Biraz daha dikkatli ol, tekrar dene.");
+
+    setupForm('form2', checkForm2, 'feedback2',
+      "QR kod solunuzda kalacak şekilde sırtınızı ağaca verin 5 ağaç ilerleyin.",
+      "Biraz daha dikkatli ol, tekrar dene.");
+
+    setupForm('form3', checkForm3, 'feedback3',
+      "Harika! Sonraki göreve hazırsın.",
+      "Biraz daha dikkatli ol, tekrar dene.");
+
+    setupForm('form4', checkForm4, 'feedback4',
+      "Güzel! Son göreve bir adım daha yaklaştın.",
+      "Biraz daha dikkatli ol, tekrar dene.");
+
+    setupForm('form5', checkForm5, 'feedback5',
+      "Tebrikler! Tüm görevleri tamamladın, harika iş çıkardın!",
+      "Biraz daha dikkatli ol, tekrar dene.");
+
+  </script>
+</body>
+</html>
